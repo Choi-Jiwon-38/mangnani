@@ -9,105 +9,106 @@
 </head>
 <body class="container">
     <article class="start">
-        <h1 class="mt-5 text-center">망나니 테스트</h1>
-        <button type="button" class="btn btn-outline-primary mt-5" onclick='start()'>테스트 시작하기</button>
+        <h1 class="mt-5 text-center ft">망나니 테스트</h1>
+        <button type="button" class="btn btn-outline-primary mt-5 ft" onclick='start()'>테스트 시작하기</button>
     </article>
     <article class="question">
         <div class="mt-5 progress ">
             <div class="progress-bar progress-bar-striped bg-info progress-bar-animated " role="progressbar " aria-valuenow="75 " aria-valuemin="0 " aria-valuemax="100 " style="width: calc(100/10*1%) "></div>
         </div>
-        <h2 id="title" class="mt-5 text-center ">문제</h2>
-        <input id="line" type="hidden" value="MID">
-        <button id="A" type="button" class="btn btn-outline-primary mt-5 " onclick=''>답안 A를 선택한다</button>
-        <button id="B" type="button" class="btn btn-outline-primary mt-5 " onclick=''>답안 B를 선택한다</button>
-        <button id="C" type="button" class="btn btn-outline-primary mt-5 " onclick=''>답안 C를 선택한다</button>
+        <h2 id="title" class="mt-5 text-center ft">문제</h2>
+        <img id="image" class="mt-5 text-center" src="image/img1.png">
+        <button id="A" type="button" class="btn btn-outline-primary mt-4 ft">답안 A를 선택한다</button>
+        <button id="B" type="button" class="btn btn-outline-primary mt-4 ft">답안 B를 선택한다</button>
+        <button id="C" type="button" class="btn btn-outline-primary mt-4 ft">답안 C를 선택한다</button>
+        <button id="D" type="button" class="btn btn-outline-primary mt-4 ft">답안 D를 선택한다</button>
     </article>
     <article class="result">
-        <h1>결과</h1>
-        <h2>설명</h2>
+        <h1 class="mt-5 text-center ft">결과</h1>
+        <h2 class="mt-5 text-center ft">설명</h2>
     </article>
-    <input type="hidden" id="GSK" value="0">
-    <input type="hidden" id="MID" value="0">
-    <input type="hidden" id="JG" value="0">
-    <input type="hidden" id="AD" value="0">
-    <input type="hidden" id="SUP" value="0">
+    <input type="hidden" id="MNN" value="0">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx " crossorigin="anonymous "></script>
     <script>
         var num = 1;
         var q = {
             1: {
-                "title": "상황 1",
-                "type": "MID",
-                "A": "~한다",
-                "B": "~한다",
-                "C": "~한다",
+                "title": "상황 1. 익숙한 냄새와 귀 익은 소리, 탑으로 향할 시간이다... 무슨 챔피언을 선택해야 할까?",
+                "A": "베인, 티모, 루시안처럼 졸렬 딜교가 가능한 원딜챔을 선택한다.",
+                "B": "오른이나 말파이트처럼 팀에게 항상 든든하고 안정적인 국밥챔을 선택한다.",
+                "C": "이렐리아나 리븐, 다리우스처럼 강한 주도권을 가진 칼챔을 선택한다",
+                "D": "전부 상관없이 내가 하고 싶은 챔피언을 올려둔 채로 팀원에게 조합을 맞추라고 한다.",
             },
             2: {
-                "title": "상황 2",
-                "type": "MID",
-                "A": "~한다 ",
+                "title": "상황 2. 탑 라인전이 시작되기 전, 지금의 나는 어디를 향하고 있을까?",
+                "A": "우리팀의 인베를 도와주거나 탑 인베 방어를 하러 간다.",
                 "B": "~한다 ",
                 "C": "~한다 ",
+                "D": "포탑 앞에서 춤을 춘다.",
             },
             3: {
-                "title": "상황 3",
-                "type": "JG",
-                "A": "~한다",
+                "title": "상황 3. 탑에서 교전이 일어나 죽었다... 텔로 복귀한 뒤에 나의 행동은?",
+                "A": "안정적이게 라인을 만든 뒤에 미니언을 받아 먹는다.",
                 "B": "~한다",
-                "C": "~한다",
+                "C": "우리팀 정글을 부른다.",
+                "D": "교전으로 상대방 피가 얼마 없으니 다시 한 번 싸워서 상대에게 내가 누군지 보여준다.",
             },
             4: {
-                "title": "상황 4",
-                "type": "JG",
-                "A": "~한다 ",
-                "B": "~한다 ",
-                "C": "~한다 ",
+                "title": "상황 4. 우리팀을 정글이 탑을 향하고 있다! 무엇을 하려는 걸까?",
+                "A": "카정을 들어갈 것이다.",
+                "B": "바위게를 챙기거나 탑 쪽 부쉬에 와딩을 하려는 동선일 것이다.",
+                "C": "탑갱을 오거나 역갱을 봐주려고 할 것이다.",
+                "D": "탑 다이브를 위한 동선일 것이다.",
             },
             5: {
-                "title": "상황 5",
-                "type": "AD",
-                "A": "~한다 ",
-                "B": "~한다 ",
-                "C": "~한다 ",
+                "title": "상황 5. 신성한 탑 라인전에 적팀 서포터가 와서 내가 죽었다...",
+                "A": "우리팀이 아래에서 이득 많이 보면 되겠다.",
+                "B": "대체 뭘하면 적 서폿이 여기까지 오는거지? 우리팀 바텀이 뭐하고 있는지 본다.",
+                "C": "아이~ 싯X! 우리팀 서폿에게 처신 잘하라는 의미로 미아핑을 찍어준다.",
+                "D": "탑 라인전 = 정글 차이",
             },
             6: {
-                "title": "상황 6",
-                "type": "AD",
-                "A": "~한다 ",
-                "B": "~한다 ",
-                "C": "~한다 ",
+                "title": "상황 6. 상대팀 탑이 텔레포트로 로밍을 가려고 하고 있다!!",
+                "A": "바로 맞텔을 타준다.",
+                "B": "맞텔 타기엔 아까우니까 최대한 상대탑의 피를 깎아서 보낸다.",
+                "C": "맞텔도 내 스킬도 아깝다. 스킬 아껴서 라인 밀 때 쓴다.",
+                "D": "난 점화를 들었다.",
             },
             7: {
                 "title": "상황 7",
-                "type": "SUP",
                 "A": "~한다 ",
                 "B": "~한다 ",
                 "C": "~한다 ",
+                "D": "~한다 ",
             },
             8: {
                 "title": "상황 8",
-                "type": "SUP",
                 "A": "~한다 ",
                 "B": "~한다 ",
                 "C": "~한다 ",
+                "D": "~한다 ",
             },
-
             9: {
                 "title": "상황 9",
-                "type": "SUP",
                 "A": "~한다 ",
                 "B": "~한다 ",
                 "C": "~한다 ",
+                "D": "~한다 "
             },
-
             10: {
                 "title": "상황 10",
-                "type": "SUP",
                 "A": "~한다 ",
                 "B": "~한다 ",
                 "C": "~한다 ",
+                "D": "~한다 ",
             },
+        }
+
+        var result = {
+            "1": {},
+            "2": {},
+            "3": {},
         }
 
         function start() {
@@ -116,22 +117,26 @@
         }
 
         $('#A').click(function() {
-            var line = $("#line").val();
-            var preValue = $("#" + line).val();
-            $("#" + line).val(parseInt(preValue) + 2);
+            var preValue = $("#MNN").val();
+            $("#MNN").val(parseInt(preValue) + 1);
             next();
         });
 
         $('#B').click(function() {
-            var line = $("#line").val();
-            var preValue = $("#" + line).val();
-            $("#" + line).val(parseInt(preValue) + 1);
+            var preValue = $("#MNN").val();
+            $("#MNN").val(parseInt(preValue) + 5);
             next();
         });
 
         $('#C').click(function() {
-            var line = $("#line").val();
-            var preValue = $("#" + line).val();
+            var preValue = $("#MNN").val();
+            $("#MNN").val(parseInt(preValue) + 8);
+            next();
+        });
+
+        $('#D').click(function() {
+            var preValue = $("#MNN").val();
+            $("#MNN").val(parseInt(preValue) + 10);
             next();
         });
 
@@ -139,14 +144,17 @@
             if (num == 11) {
                 $(".question").hide();
                 $(".result").show();
+            } else {
+                $(".progress-bar").attr('style', 'width: calc(100/10*' + num + '%)');
+                $("#image").attr('src', 'image/img'+num+'.png')
+                $("#title").html(q[num]["title"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+                $("#C").html(q[num]["C"]);
+                $("#D").html(q[num]["D"]);
+                console.log(image[num-1])
+                num++;
             }
-            $(".progress-bar").attr('style', 'width: calc(100/10*' + num + '%)')
-            $("#title").html(q[num]["title"]);
-            $("#line").val(q[num]["type"]);
-            $("#A").html(q[num]["A"]);
-            $("#B").html(q[num]["B"]);
-            $("#C").html(q[num]["C"]);
-            num++;
         }
     </script>
 </body>
