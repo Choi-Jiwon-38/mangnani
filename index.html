@@ -39,10 +39,10 @@
         </div>
         <h2 id="title" class="mt-5 text-center ft">문제</h2>
         <img id="image" class="mt-5 text-center" src="이미지 경로를 입력">
-        <button id="A" type="button" class="btn btn-outline-primary mt-4 ft">선택지 A</button>
-        <button id="B" type="button" class="btn btn-outline-primary mt-4 ft">선택지 B</button>
-        <button id="C" type="button" class="btn btn-outline-primary mt-4 ft">선택지 C</button>
-        <button id="D" type="button" class="btn btn-outline-primary mt-4 ft">선택지 D</button>
+        <button id="A" type="button" class="btn btn-outline-primary mt-4 ft" onclick="button_clicked(this.id)">선택지 A</button>
+        <button id="B" type="button" class="btn btn-outline-primary mt-4 ft" onclick="button_clicked(this.id)">선택지 B</button>
+        <button id="C" type="button" class="btn btn-outline-primary mt-4 ft" onclick="button_clicked(this.id)">선택지 C</button>
+        <button id="D" type="button" class="btn btn-outline-primary mt-4 ft" onclick="button_clicked(this.id)">선택지 D</button>
     </article>
     <!-- 망나니 테스트 결과 화면 -->
     <article class="result">
@@ -149,29 +149,24 @@
             next();
         }
 
-        $('#A').click(function() {
+        function button_clicked(button_id) {
             var preValue = $("#MNN").val();
-            $("#MNN").val(parseInt(preValue) + 1);
+            switch (button_id) {
+                case "A":
+                    $("#MNN").val(parseInt(preValue) + 1);
+                    break;
+                case "B":
+                    $("#MNN").val(parseInt(preValue) + 4);
+                    break;
+                case "C":
+                    $("#MNN").val(parseInt(preValue) + 7);
+                    break;
+                case "D":
+                    $("#MNN").val(parseInt(preValue) + 10);
+                    break;
+            }
             next();
-        });
-
-        $('#B').click(function() {
-            var preValue = $("#MNN").val();
-            $("#MNN").val(parseInt(preValue) + 5);
-            next();
-        });
-
-        $('#C').click(function() {
-            var preValue = $("#MNN").val();
-            $("#MNN").val(parseInt(preValue) + 8);
-            next();
-        });
-
-        $('#D').click(function() {
-            var preValue = $("#MNN").val();
-            $("#MNN").val(parseInt(preValue) + 10);
-            next();
-        });
+        }
 
         function next() {
             if (num == 11) {
